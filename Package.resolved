@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "32573d05b91d8b7349ca31b4726e80212483f02a",
+          "version": "4.8.0"
+        }
+      },
+      {
+        "package": "Kiri",
+        "repositoryURL": "https://github.com/junkpiano/Kiri.git",
+        "state": {
+          "branch": null,
+          "revision": "a83dda33a3b2f6d193dbe24b91a93b5cb65bb64f",
+          "version": "1.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
