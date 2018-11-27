@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Mention: Codable {
-    let url: String
-    let username: String
-    let acct: String
-    let id: String
+public class Mention: Codable {
+    public let url: String
+    public let username: String
+    public let acct: String
+    public let id: String
 }

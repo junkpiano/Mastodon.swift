@@ -8,15 +8,15 @@
 
 import Foundation
 
-class Status: Codable {
-    let content: String
-    let hyperLinks: [String: String]
-    let account: Account
-    let reblog: Status?
-    let id: String
-    let media_attachments: [Media]
-    let emojis: [Emoji]
-    let mentions: [Mention]
+public class Status: Codable {
+    public let content: String
+    public let hyperLinks: [String: String]
+    public let account: Account
+    public let reblog: Status?
+    public let id: String
+    public let media_attachments: [Media]
+    public let emojis: [Emoji]
+    public let mentions: [Mention]
 
 //    let id: String
 //    let in_reply_to_id: String?
@@ -38,7 +38,7 @@ class Status: Codable {
         case mentions
     }
 
-    required init(from decoder: Decoder) throws {
+    required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         let tmp = try values.decode(String.self, forKey: .content)
         (content, hyperLinks) = tmp.stripHTML()
@@ -50,7 +50,7 @@ class Status: Codable {
         mentions = try values.decode([Mention].self, forKey: .mentions)
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(content, forKey: .content)
         try container.encode(account, forKey: .account)
@@ -61,7 +61,7 @@ class Status: Codable {
         try container.encode(mentions, forKey: .mentions)
     }
 
-    func mention(by username: String) -> Mention? {
+    public func mention(by username: String) -> Mention? {
         return mentions.filter { (mention) -> Bool in
             mention.username == username
         }.first

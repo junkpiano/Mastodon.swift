@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Document {
+public class Document {
     let source: String
     var documentType: String
     var body: String

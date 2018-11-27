@@ -11,15 +11,15 @@ import Kiri
 
 extension MastodonAPI: RequestContainer {
     
-    var endpoint: URL {
+   public var endpoint: URL {
         return URL(string: "https://" + Mastodon.shared.hostname)!
     }
     
-    var mockResponse: Response? {
+    public var mockResponse: Response? {
         return nil
     }
     
-    var path: String {
+    public var path: String {
         switch self {
         case .timeline(let type, let hashTag, _, _):
             return type.timelinePath(hashTag)
@@ -36,7 +36,7 @@ extension MastodonAPI: RequestContainer {
         }
     }
     
-    var httpMethod: HTTPMethod {
+    public var httpMethod: HTTPMethod {
         switch self {
         case .token, .toot:
             return .post
@@ -45,7 +45,7 @@ extension MastodonAPI: RequestContainer {
         }
     }
     
-    var headers: HTTPHeaders {
+    public var headers: HTTPHeaders {
         let authHeader = [
             "Authorization": "Bearer \(Mastodon.shared.token)"
         ]
@@ -64,7 +64,7 @@ extension MastodonAPI: RequestContainer {
         }
     }
     
-    var parameters: Parameters? {
+    public var parameters: Parameters? {
         switch self {
         case .timeline(let type, _, _, let maxId):
             var params = type.timelineParameters()
@@ -89,7 +89,7 @@ extension MastodonAPI: RequestContainer {
         }
     }
     
-    var encoding: URLEncoding {
+    public var encoding: URLEncoding {
         switch self {
         case .token:
             return .httpBody

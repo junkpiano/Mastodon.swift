@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Headers {
-    var maxId: String
-    var minId: String
+public class Headers {
+    public var maxId: String
+    public var minId: String
 
     init(with data: [AnyHashable: Any]) {
         if let link = data["Link"] as? String {

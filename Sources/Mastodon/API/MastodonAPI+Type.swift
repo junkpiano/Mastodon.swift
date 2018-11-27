@@ -10,7 +10,7 @@ import Foundation
 import Kiri
 
 extension MastodonAPI {
-    enum StatusesType {
+    public enum StatusesType {
         case status, context, card
         
         func statusPath(_ id: String) -> String {
@@ -27,7 +27,7 @@ extension MastodonAPI {
         }
     }
     
-    enum TimelineType {
+    public enum TimelineType {
         case home, local, federation, hashtag
         
         func timelinePath(_ hashTag: String) -> String {

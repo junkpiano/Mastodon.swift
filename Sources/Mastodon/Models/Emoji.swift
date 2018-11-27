@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Emoji: Codable {
+public class Emoji: Codable {
     let shortcode: String
     let static_url: String
     let url: String

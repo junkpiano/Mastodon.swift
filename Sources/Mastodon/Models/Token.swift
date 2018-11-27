@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Token: Codable {
-    let access_token: String
+public struct Token: Codable {
+    public let access_token: String
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Entity: Codable {
+public class Entity: Codable {
     var name: String = ""
     var body: String = ""
     var attrs: [String: String] = [:]

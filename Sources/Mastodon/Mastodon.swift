@@ -8,17 +8,17 @@
 
 import Kiri
 
-class Mastodon {
-    static let shared = Mastodon()
+public class Mastodon {
+    public static let shared = Mastodon()
 
-    var hostname: String = ""
-    var token: String = ""
-    var clientId: String = ""
-    var secretId: String = ""
-    var scope: String = ""
-    var redirectUri: String = ""
+    public var hostname: String = ""
+    public var token: String = ""
+    public var clientId: String = ""
+    public var secretId: String = ""
+    public var scope: String = ""
+    public var redirectUri: String = ""
 
-    static func load(hostname: String,
+    public static func load(hostname: String,
                      token: String = "",
                      clientId: String = "",
                      secretId: String = "",
@@ -35,7 +35,7 @@ class Mastodon {
         }
     }
 
-    static func fetchTimeline(type: MastodonAPI.TimelineType, hashTag: String, listId: String, maxId: String, completion: @escaping ([Status]?, Headers?, Error?) -> Void) {
+    public static func fetchTimeline(type: MastodonAPI.TimelineType, hashTag: String, listId: String, maxId: String, completion: @escaping ([Status]?, Headers?, Error?) -> Void) {
         Kiri<API>(request: .timeline(type, hashTag, listId, maxId)).send { (response, error) in
             
             var headers: Headers?

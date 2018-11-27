@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Account: Codable {
-    let id: String
-    let username: String
-    let acct: String
-    let display_name: String
-    let avatar: String
-    let avatar_static: String
-    let header: String
-    let header_static: String
-    let emojis: [Emoji]
+public class Account: Codable {
+    public let id: String
+    public let username: String
+    public let acct: String
+    public let display_name: String
+    public let avatar: String
+    public let avatar_static: String
+    public let header: String
+    public let header_static: String
+    public let emojis: [Emoji]
 }

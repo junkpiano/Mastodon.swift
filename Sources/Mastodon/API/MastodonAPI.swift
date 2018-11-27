@@ -9,7 +9,7 @@
 import Foundation
 import Kiri
 
-enum MastodonAPI {
+public enum MastodonAPI {
     case timeline(TimelineType, String, String, String)
     case token(String)
     case account(String)
@@ -18,4 +18,4 @@ enum MastodonAPI {
     case toot(String, [Int], Bool)
 }
 
-typealias API = MastodonAPI
+public typealias API = MastodonAPI
