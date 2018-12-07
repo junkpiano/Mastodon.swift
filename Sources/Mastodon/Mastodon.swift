@@ -65,4 +65,20 @@ public class Mastodon {
             debugPrint(error ?? "no error")
         }
     }
+    
+    public static func fetchAccount(accountId: String,
+                                    completion: @escaping (Account?, Error?) -> Void) {
+        Kiri<API>(request: .account(accountId)).send { (response, error) in
+            if let response = response {
+                do {
+                    let account: Account = try response.decodeJSON()
+                    completion(account, nil)
+                } catch {
+                    completion(nil, error)
+                }
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
 }
