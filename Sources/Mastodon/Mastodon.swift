@@ -35,7 +35,11 @@ public class Mastodon {
         }
     }
 
-    public static func fetchTimeline(type: MastodonAPI.TimelineType, hashTag: String, listId: String, maxId: String, completion: @escaping ([Status]?, Headers?, Error?) -> Void) {
+    public static func fetchTimeline(type: MastodonAPI.TimelineType,
+                                     hashTag: String,
+                                     listId: String,
+                                     maxId: String,
+                                     completion: @escaping ([Status]?, Headers?, Error?) -> Void) {
         Kiri<API>(request: .timeline(type, hashTag, listId, maxId)).send { (response, error) in
             
             var headers: Headers?
@@ -51,6 +55,14 @@ public class Mastodon {
                 completion(nil, headers, error)
             }
             
+        }
+    }
+    
+    public static func postToot(tootText: String,
+                                mediaIDs: [Int],
+                                sensitive: Bool) {
+        Kiri<MastodonAPI>(request: .toot(tootText, mediaIDs, sensitive)).send { (response, error) in
+            debugPrint(error ?? "no error")
         }
     }
 }
