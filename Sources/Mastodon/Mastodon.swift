@@ -58,6 +58,22 @@ public class Mastodon {
         }
     }
     
+    public static func fetchStatus(type: MastodonAPI.StatusesType,
+                                   statusId: String,
+                                   completion: @escaping (Status?, Error?) -> Void) {
+        Kiri<API>(request: .status(type, statusId)).send(completion: { (response, error) in
+            do {
+                if let response = response, let status: Status = try response.decodeJSON() {
+                    completion(status, nil)
+                } else {
+                    completion(nil, error)
+                }
+            } catch {
+                completion(nil, error)
+            }
+        })
+    }
+    
     public static func postToot(tootText: String,
                                 mediaIDs: [Int],
                                 sensitive: Bool) {
