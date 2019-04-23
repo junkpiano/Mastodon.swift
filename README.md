@@ -10,4 +10,4 @@ A description of this package.
 
 ### Swift Package Manager
 
-    .package(url: "https://github.com/junkpiano/Mastodon.git", from: "1.0.0")
+    .package(url: "https://github.com/junkpiano/Mastodon.git", from: "1.1.0")
